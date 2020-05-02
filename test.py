@@ -11,5 +11,9 @@ user=(1,'vikas','vikas')
 insert_query="INSERT INTO USERS VALUES (?,?,?)"
 cursor.execute(insert_query,user)
 
+users=[(2,'rahul','rahul'),
+        (3,'tan','tan')]
+cursor.executemany(insert_query,users)
+
 connection.commit()
 connection.close()
