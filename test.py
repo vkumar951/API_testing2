@@ -15,5 +15,9 @@ users=[(2,'rahul','rahul'),
         (3,'tan','tan')]
 cursor.executemany(insert_query,users)
 
+select_query="SELECT * from USERS"
+for row in cursor.execute(select_query):
+    print(row)
+
 connection.commit()
 connection.close()

@@ -2,6 +2,7 @@ from flask import Flask,request
 from flask_restful import Resource , Api,reqparse
 from flask_jwt import JWT,jwt_required
 from security import authenticate,identity
+from user import UserRegister
 
 app=Flask(__name__)
 app.secret_key='vikas'
@@ -31,7 +32,7 @@ class Item(Resource):
     def delete(self,name):
         global items
         items=list(filter(lambda x:x['name'] !=name,items))
-        return {'message':'item deleted'}
+        return {'message': 'Item deleted'}
 
     # create items  or update items using PUT method
     def put(self,name):
@@ -53,6 +54,7 @@ class Itemlist(Resource):
 
 api.add_resource(Item,'/item/<string:name>')
 api.add_resource(Itemlist,'/items')
+api.add_resource(UserRegister,'/register')
 
 app.run(port=5000,debug=True)
 
