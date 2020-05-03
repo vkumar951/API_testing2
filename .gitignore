@@ -126,3 +126,4 @@ dmypy.json
 
 # Dont want to dump the folder : venv is a python environment for us.
 venv/*
+*/.db
